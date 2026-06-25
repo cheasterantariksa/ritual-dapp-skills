@@ -58,9 +58,9 @@ if ! command -v uv >/dev/null 2>&1; then
     exit 1
 fi
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PY=(uv run --quiet python3)
-PY_HELPER=(uv run --quiet --with eciespy --with eth-abi --with web3 python3)
+SCRIPT_DIR="$(cygpath -w "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)")"
+PY=(python)
+PY_HELPER=(python)
 
 WALLET="0x532F0dF0896F353d8C3DD8cc134e8129DA2a3948"
 TRACKER="0xC069FFCa0389f44eCA2C626e55491b0ab045AEF5"
@@ -188,7 +188,7 @@ BUILD_DKMS_ARGS=(
     --rpc "$RPC_URL"
     --registry "$REGISTRY"
     --owner "$SENDER"
-    --key-index 0
+    --key-index "${KEY_INDEX:-0}"
 )
 if [ -n "$EXECUTOR_TEE_ADDRESS" ]; then
     BUILD_DKMS_ARGS+=(--executor-tee-address "$EXECUTOR_TEE_ADDRESS")

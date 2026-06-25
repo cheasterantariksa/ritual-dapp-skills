@@ -21,3 +21,11 @@ venv/
 Thumbs.db
 .idea/
 .vscode/
+secrets.env
+*.log
+*_output.txt
+cache/
+out/
+registry_raw.txt
+debug_output.txt
+lastresult.txt

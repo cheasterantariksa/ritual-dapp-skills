@@ -54,10 +54,10 @@ if ! command -v uv >/dev/null 2>&1; then
     exit 1
 fi
 
-PY=(uv run --quiet python3)
-PY_HELPER=(uv run --quiet --with eciespy --with eth-abi --with web3 python3)
+PY=(python)
+PY_HELPER=(python)
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SCRIPT_DIR="$(cygpath -w "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)")"
 WALLET="0x532F0dF0896F353d8C3DD8cc134e8129DA2a3948"
 REGISTRY="0x9644e8562cE0Fe12b4deeC4163c064A8862Bf47F"
 TRACKER="0xC069FFCa0389f44eCA2C626e55491b0ab045AEF5"
